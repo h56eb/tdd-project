@@ -1,0 +1,6 @@
+O TDD funciona como um ciclo. Primeiro a gente escreve um teste, depois roda ele. Se falhar, 
+escreve o mínimo de código pra passar. Quando passa, refatora se precisar. Aí repete.
+
+Na segunda figura, mostra que tem dois níveis: os testes funcionais, que verificam o sistema inteiro, 
+e os unitários, que verificam partes menores. Então, quando o teste funcional falha, 
+a gente entra no ciclo dos unitários até resolver, e depois volta pro funcional.
