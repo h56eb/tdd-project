@@ -1,6 +1,6 @@
-from django.conf.urls import url
+from django.urls import path
 from lists import views
 
 urlpatterns = [
-    url(r'^$', views.home_page, name='home'),
+    path('', views.home_page, name='home'),
 ]
