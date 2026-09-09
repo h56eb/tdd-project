@@ -20,22 +20,18 @@ class HomePageTest(TestCase):
 
 class ItemModelTest(TestCase):
 
-    def test_saving_and_retrieving_items(self):
-        first_item = Item()
-        first_item.text = 'O primeiro item'
-        first_item.save()
+    
+    def test_can_save_a_POST_request(self):
+        response = self.client.post('/', data={'item_text': 'A new list item'})
 
-        second_item = Item()
-        second_item.text = 'O segundo item'
-        second_item.save()
+        self.assertEqual(Item.objects.count(), 1)
+        new_item = Item.objects.first()
+        self.assertEqual(new_item.text, 'A new list item')
 
-        saved_items = Item.objects.all()
-        self.assertEqual(saved_items.count(), 2)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['location'], '/')
 
-        first_saved_item = saved_items[0]
-        second_saved_item = saved_items[1]
-        self.assertEqual(first_saved_item.text, 'O primeiro item')
-        self.assertEqual(second_saved_item.text, 'O segundo item')
+    
 
 class HomePageTest(TestCase):
     
