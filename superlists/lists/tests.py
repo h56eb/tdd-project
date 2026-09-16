@@ -31,3 +31,10 @@ class ListAndItemModelsTest(TestCase):
         self.assertEqual(first_saved_item.list, my_list)
         self.assertEqual(second_saved_item.text, 'O segundo item')
         self.assertEqual(second_saved_item.list, my_list)
+
+    ...
+    def test_displays_all_items(self):
+        my_list = List.objects.create()
+        Item.objects.create(text='itemey 1', list=my_list)
+        Item.objects.create(text='itemey 2', list=my_list)
+        ...
